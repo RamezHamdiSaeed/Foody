@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Foody</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="create_an_account_string">Create an account</string>
+    <string name="let_s_help_you_set_up_your_account__it_won_t_take_long__string">Lets help you set up your account, it wont take long.</string>
+    <string name="accept_terms___condition_string">Accept terms &amp; Condition</string>
+    <string name="_already_a_member__sign_in_string">Already a member? Sign In</string>
+    <string name="or_sign_in_with_string">Or Sign in With</string>
+    <string name="placeholder_string">Enter Name</string>
+    <string name="label_string">Name</string>
+    <string name="placeholder_ek1_string">Enter Email</string>
+    <string name="label_ek1_string">Email</string>
+    <string name="placeholder_ek2_string">Enter Passwrod</string>
+    <string name="label_ek2_string">Password</string>
+    <string name="placeholder_ek3_string">Retype Password</string>
+    <string name="label_ek3_string">Confirm Password</string>
+    <string name="label_ek4_string">Sign Up</string>
+    <string name="___time_string">19:27</string>
 </resources>
