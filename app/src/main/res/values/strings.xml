@@ -7,7 +7,7 @@
     <string name="_already_a_member__sign_in_string">Already a member? Sign In</string>
     <string name="or_sign_in_with_string">Or Sign in With</string>
     <string name="placeholder_string">Enter Name</string>
-    <string name="label_string">Name</string>
+    <string name="Name">Name</string>
     <string name="placeholder_ek1_string">Enter Email</string>
     <string name="label_ek1_string">Email</string>
     <string name="placeholder_ek2_string">Enter Passwrod</string>
@@ -16,4 +16,9 @@
     <string name="label_ek3_string">Confirm Password</string>
     <string name="label_ek4_string">Sign Up</string>
     <string name="___time_string">19:27</string>
+
+    <string name="premium_recipe_string">Premium Recipe </string>
+    <string name="header_title_string">GetCooking</string>
+    <string name="caption_string">Simple way to find Tasty Recipe</string>
+    <string name="startCooking">Start Cooking</string>
 </resources>

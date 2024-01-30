@@ -1,7 +1,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="match_parent">
 	<!--
     /*
      *	This content is generated from the API File Info.
@@ -37,8 +38,8 @@
 
 				<View
 					android:id="@+id/_bg__sign_up_ek2"
-					android:layout_width="match_parent"
-					android:layout_height="788dp"
+					android:layout_width="397dp"
+					android:layout_height="706dp"
 					android:layout_marginStart="0dp"
 					android:layout_marginTop="0dp"
 					android:background="@drawable/_bg__sign_up_ek2_shape" />

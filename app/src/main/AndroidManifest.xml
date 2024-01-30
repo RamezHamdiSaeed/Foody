@@ -24,6 +24,9 @@
         <activity
             android:name=".sign_up_activity"
             android:exported="false"/>
+        <activity
+            android:name=".splash_screen_activity"
+            android:exported="false"/>
     </application>
 
 </manifest>

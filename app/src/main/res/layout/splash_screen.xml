@@ -1,0 +1,167 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<!--
+    /*
+     *	This content is generated from the API File Info.
+     *	(Alt+Shift+Ctrl+I).
+     *
+     *	@desc
+     *	@file 		splash_screen
+     *	@date 		Tuesday 30th of January 2024 05:00:20 AM
+     *	@title 		Design
+     *	@author
+     *	@keywords
+     *	@generator 	Export Kit v1.3.figma
+     *
+     */
+    -->
+	<ScrollView
+		android:id="@+id/splash_screen"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintStart_toStartOf="parent"
+		tools:layout_editor_absoluteY="2dp">
+
+		<RelativeLayout
+			android:id="@+id/content_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+
+			<RelativeLayout
+				android:id="@+id/page_splash_screen_ek1"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp">
+
+				<View
+					android:id="@+id/_bg__splash_screen_ek2"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:background="@drawable/_bg__splash_screen_ek2_shape" />
+
+				<ImageView
+					android:id="@+id/rectangle_6"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:contentDescription="rectangle_6"
+					android:src="@drawable/rectangle_6" />
+
+
+				<RelativeLayout
+					android:id="@+id/frame_2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="104dp"
+					android:layout_marginTop="104dp">
+
+					<View
+						android:id="@+id/_bg__frame_2_ek1"
+						android:layout_width="151dp"
+						android:layout_height="120dp"
+						android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:background="@drawable/_bg__frame_2_ek1_shape" />
+
+					<ImageView
+						android:id="@+id/image_11"
+						android:layout_width="79dp"
+						android:layout_height="79dp"
+						android:layout_marginStart="36dp"
+						android:layout_marginTop="0dp"
+						android:contentDescription="image_11"
+						android:src="@drawable/image_11" />
+
+					<TextView
+						android:id="@+id/premium_recipe"
+						android:layout_width="158dp"
+						android:layout_height="32.8dp"
+						android:layout_marginLeft="-3dp"
+						android:layout_marginTop="93dp"
+						android:gravity="center"
+						android:text="premium recipe string"
+						android:textColor="#292626"
+						android:textSize="18sp"
+						android:textStyle="bold" />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout
+					android:id="@+id/text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="50dp"
+					android:layout_marginTop="446dp">
+
+					<View
+						android:id="@+id/_bg__text_ek1"
+						android:layout_width="275dp"
+						android:layout_height="164dp"
+						android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:background="@drawable/_bg__text_ek1_shape" />
+
+					<TextView
+						android:id="@+id/header_title"
+						android:layout_width="223dp"
+						android:layout_height="135dp"
+						android:layout_gravity="center_horizontal|center"
+						android:layout_marginLeft="23dp"
+						android:layout_marginTop="0dp"
+						android:gravity="center"
+						android:text="@string/header_title_string"
+						android:textColor="#3E3737"
+						android:textSize="24sp"
+						android:textStyle="bold" />
+
+					<TextView
+						android:id="@+id/caption"
+						android:layout_width="282dp"
+						android:layout_height="28.6dp"
+						android:layout_gravity="center_horizontal|center"
+						android:layout_marginLeft="-3dp"
+						android:layout_marginTop="140dp"
+						android:gravity="center"
+						android:text="@string/caption_string"
+						android:textColor="#8F8585"
+						android:textSize="16sp" />
+
+				</RelativeLayout>
+
+
+				<RelativeLayout
+					android:id="@+id/medium_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="66dp"
+					android:layout_marginTop="674dp">
+
+					<TextView
+						android:id="@+id/label"
+						android:layout_width="121dp"
+						android:layout_height="28.6dp"
+						android:layout_gravity="center_horizontal|center"
+						android:layout_marginLeft="47dp"
+						android:layout_marginTop="15dp"
+						android:gravity="center"
+						android:text="Start Cooking"
+						android:textColor="#FBF1F1"
+						android:textSize="16sp"
+						android:textStyle="bold" />
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+		</RelativeLayout>
+
+	</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
