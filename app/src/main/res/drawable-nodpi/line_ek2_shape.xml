@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- line_ek2 from your XD file. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-	android:shape="rectangle" >
-	<corners android:radius="100dp" />
-	<solid android:color="@color/let_s_help_you_set_up_your_account__it_won_t_take_long__color" />
-</shape>
-
