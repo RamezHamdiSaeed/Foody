@@ -65,8 +65,10 @@
     <string name="signUp">Sign Up</string>
     <string name="enterAsAGuest">Enter As A Guest</string>
     <string name="createAnAccount">Create An Account</string>
-    <string name="letsHelpYouSetYourAccount">Let’s help you set up your account, it won’t take long.</string>
+    <string name="letsHelpYouSetYourAccount">Let’s help you set up your account.</string>
     <string name="confirmPassword">Confirm Password</string>
     <string name="enterConfirmPassword">Enter Confirm Password</string>
     <string name="alreadyAMember">Already A Member?</string>
+    <string name="logout">LogOut</string>
+    <string name="client_id">194219074503-2scg5hj7dvafavig9ldm7sjshnnnejf5.apps.googleusercontent.com</string>
 </resources>

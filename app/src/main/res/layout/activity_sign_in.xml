@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F4EFEF"
     tools:context=".screens.SignIn">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="48dp"
         android:text="@string/hello"
+        android:textColor="#292828"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="112dp"
         android:text="@string/welcomeBack"
+        android:textColor="#292828"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +39,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="180dp"
         android:text="@string/email"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,14 +48,18 @@
         android:id="@+id/email"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="220dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:hint="@string/enterEmail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:paddingStart="16dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,6 +70,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="28dp"
         android:text="@string/password"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -70,14 +79,18 @@
         android:id="@+id/password"
         android:layout_width="322dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="340dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:hint="@string/enterPassword"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:paddingStart="16dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,10 +167,10 @@
         android:id="@+id/switchAuth"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginStart="8dp"
         android:text="@string/signUp"
         android:textColor="#FF9C00"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dontHaveAnAccount"
         app:layout_constraintTop_toTopOf="@+id/dontHaveAnAccount" />
 
     <TextView

@@ -14,6 +14,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="28dp"
         android:text="@string/createAnAccount"
+        android:textColor="#292828"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,11 +22,12 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="192dp"
-        android:layout_height="39dp"
+        android:layout_width="240dp"
+        android:layout_height="59dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="72dp"
         android:text="@string/letsHelpYouSetYourAccount"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +39,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="140dp"
         android:text="@string/email"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,14 +48,18 @@
         android:id="@+id/email"
         android:layout_width="322dp"
         android:layout_height="48dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="176dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:hint="@string/enterEmail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:paddingStart="16dp"
+        android:paddingStart="32dp"
+        android:paddingLeft="32dp"
+        android:textColor="#292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,25 +70,30 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="28dp"
         android:text="@string/password"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
+
 
     <EditText
         android:id="@+id/password"
         android:layout_width="322dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="284dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:hint="@string/enterPassword"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:paddingStart="16dp"
+        android:paddingStart="32dp"
+        android:paddingLeft="32dp"
+        android:textColor="#292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/confirmPasswordlabel"
@@ -89,6 +101,7 @@
         android:layout_height="22dp"
         android:layout_marginTop="28dp"
         android:text="@string/confirmPassword"
+        android:textColor="#292828"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -97,13 +110,18 @@
         android:id="@+id/confirmPassword"
         android:layout_width="322dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
         android:hint="@string/enterConfirmPassword"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:paddingStart="16dp"
+        android:paddingStart="32dp"
+        android:paddingLeft="32dp"
+        android:textColor=" #292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/confirmPasswordlabel"
         app:layout_constraintTop_toBottomOf="@+id/confirmPasswordlabel" />
 
@@ -127,7 +145,7 @@
         android:layout_height="19dp"
         android:layout_marginTop="48dp"
         android:text="@string/orSignInWith"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="#292828"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signbtn" />
@@ -148,11 +166,11 @@
         android:id="@+id/divider2"
         android:layout_width="32dp"
         android:layout_height="1dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
         android:background="@color/cardview_dark_background"
         app:layout_constraintEnd_toStartOf="@+id/textView10"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signbtn" />
 
@@ -160,7 +178,7 @@
         android:id="@+id/googleSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/edit_text_border"
         android:src="@drawable/icons8_google_240_1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +193,7 @@
         android:layout_marginStart="92dp"
         android:layout_marginTop="20dp"
         android:text="@string/alreadyAMember"
-        android:textColor="@color/cardview_dark_background"
+        android:textColor="#292828"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleSignIn" />
 
