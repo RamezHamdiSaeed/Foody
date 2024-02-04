@@ -1,5 +1,6 @@
 package com.example.foody.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.foody.R;
@@ -61,7 +62,10 @@ public class ViewPagerActivity extends AppCompatActivity {
         viewPager2.setOffscreenPageLimit(2);
 
         viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
-        nextbtn.setOnClickListener(v -> Toast.makeText(ViewPagerActivity.this, "clicked", Toast.LENGTH_SHORT).show());
+        nextbtn.setOnClickListener(v -> {
+            Intent intent = new Intent(ViewPagerActivity.this, SignIn.class);
+            startActivity(intent);
+        });
 
 
 

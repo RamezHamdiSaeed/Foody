@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Foody"
         tools:targetApi="31">
         <activity
+            android:name=".screens.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".screens.SignIn"
+            android:exported="false" />
+        <activity
             android:name=".screens.SplashActivity"
             android:exported="true">
             <intent-filter>
