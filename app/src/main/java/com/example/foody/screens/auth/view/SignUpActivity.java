@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ import com.example.foody.R;
 import com.example.foody.dataSources.firebase.UserAuthModel;
 import com.example.foody.screens.auth.IContract;
 import com.example.foody.screens.auth.model.AuthModel;
-import com.example.foody.screens.auth.presenter.AuthPresenter;
+import com.example.foody.screens.auth.presenter.SignUpPresenter;
 import com.example.foody.screens.main.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -79,7 +78,7 @@ public class SignUpActivity extends AppCompatActivity implements IContract.View 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter=new AuthPresenter(this,new AuthModel());
+        presenter=new SignUpPresenter(this,new AuthModel());
         setContentView(R.layout.activity_sign_up);
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
@@ -106,7 +105,7 @@ public class SignUpActivity extends AppCompatActivity implements IContract.View 
 //                    return;
 //                }
 
-                presenter.onSingIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), confirmPassword.getText().toString()));
+                presenter.onSignIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), confirmPassword.getText().toString()));
 //                mAuth.createUserWithEmailAndPassword(emailString, passwordString)
 //                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
 //                            @Override

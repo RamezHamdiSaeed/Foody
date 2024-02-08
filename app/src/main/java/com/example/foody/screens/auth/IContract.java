@@ -1,5 +1,6 @@
 package com.example.foody.screens.auth;
 
+import com.example.foody.dataSources.firebase.SignInCallback;
 import com.example.foody.dataSources.firebase.SignUpCallback;
 import com.example.foody.dataSources.firebase.UserAuthModel;
 
@@ -17,13 +18,15 @@ public interface IContract {
 
     public interface Model {
 
-        void setUserAuthData(UserAuthModel user, SignUpCallback callback);
+        void signUp(UserAuthModel user, SignUpCallback callback);
+        void signIn(UserAuthModel user, SignInCallback callback);
+
     }
 
     public interface Presenter {
         boolean validateUserInput(String email,String password,String confirmPassword);
 
-        void onSingIn_UpClick(UserAuthModel user);
+        void onSignIn_UpClick(UserAuthModel user);
 
         void onSwitchAuthButtonClick();
         void onDestroy();

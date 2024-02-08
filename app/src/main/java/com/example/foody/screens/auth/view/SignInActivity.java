@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,8 @@ import com.example.foody.R;
 import com.example.foody.dataSources.firebase.UserAuthModel;
 import com.example.foody.screens.auth.IContract;
 import com.example.foody.screens.auth.model.AuthModel;
-import com.example.foody.screens.auth.presenter.AuthPresenter;
+import com.example.foody.screens.auth.presenter.SignInPresenter;
+import com.example.foody.screens.auth.presenter.SignUpPresenter;
 import com.example.foody.screens.main.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -82,7 +82,7 @@ public class SignInActivity extends AppCompatActivity  implements IContract.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
-        presenter=new AuthPresenter(this,new AuthModel());
+        presenter=new SignInPresenter(this,new AuthModel());
 
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
@@ -96,7 +96,7 @@ public class SignInActivity extends AppCompatActivity  implements IContract.View
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onSingIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), password.getText().toString()));
+                presenter.onSignIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), password.getText().toString()));
 
 //                progressBar.setVisibility(View.VISIBLE);
 //

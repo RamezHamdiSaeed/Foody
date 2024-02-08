@@ -3,15 +3,16 @@ package com.example.foody.screens.auth.presenter;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.example.foody.dataSources.firebase.SignInCallback;
 import com.example.foody.dataSources.firebase.SignUpCallback;
 import com.example.foody.dataSources.firebase.UserAuthModel;
 import com.example.foody.screens.auth.IContract;
 
-public class AuthPresenter implements IContract.Presenter {
+public class SignInPresenter implements IContract.Presenter {
 
     private IContract.Model model;
     private IContract.View view;
-    public AuthPresenter(IContract.View view,IContract.Model model){
+    public SignInPresenter(IContract.View view, IContract.Model model){
         this.view=view;
         this.model=model;
     }
@@ -41,26 +42,26 @@ public class AuthPresenter implements IContract.Presenter {
 
 
     @Override
-    public void onSingIn_UpClick(UserAuthModel user) {
-       if(validateUserInput(user.getEmail(),user.getPassword(), user.getConfirmPassword())){
-           Log.i("TAG", "onSingIn_UpClick: ");
-           model.setUserAuthData(user, new SignUpCallback() {
-               @Override
-               public void onSignUpComplete(boolean isSuccessful) {
-                   if(isSuccessful){
-                       view.hideProgress();
-                       view.showToast("Account Created.");
-                       view.navigate();
+    public void onSignIn_UpClick(UserAuthModel user) {
+        if(validateUserInput(user.getEmail(),user.getPassword(), user.getConfirmPassword())){
+            Log.i("TAG", "onSingIn_UpClick: ");
+            model.signIn(user, new SignInCallback() {
+                @Override
+                public void onSignInComplete(boolean isSuccessful) {
+                    if(isSuccessful){
+                        view.hideProgress();
+                        view.showToast("Account Created.");
+                        view.navigate();
 
 
-                   }
-                   else{
-                       view.showToast("Authentication failed.");
+                    }
+                    else{
+                        view.showToast("Authentication failed.");
 
-                   }
-               }
-           });
-       }
+                    }
+                }
+            });
+        }
 
     }
 
