@@ -1,6 +1,9 @@
 package com.example.foody.screens.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -17,25 +20,26 @@ import com.example.foody.dataSources.api.FoodRemoteDataSource;
 import com.example.foody.dataSources.api.MealsItem;
 import com.example.foody.dataSources.api.NetworkListener;
 import com.example.foody.dataSources.firebase.UserRepository;
-import com.example.foody.screens.auth.view.SignInActivity;
 import com.example.foody.screens.info.InfoActivity;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NetworkListener {
     private long pressedTime;
 
-    private Button logOut;
+    private BottomNavigationView bottomNavigationView;
+    NavController navController;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        logOut=findViewById(R.id.logoutBtn);
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        navController = Navigation.findNavController(this, R.id.fragmentContainerView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 
     @Override
