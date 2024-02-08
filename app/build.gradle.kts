@@ -52,5 +52,23 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     //lottie
     implementation ("com.airbnb.android:lottie:3.4.0")
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.4.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
+    //room
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-rxjava3:$2.6.1")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.0.5")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.0.5")
+    //RXJava
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation ("io.reactivex.rxjava3:rxjava:3.1.6")
+    implementation ("com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0")
 
 }

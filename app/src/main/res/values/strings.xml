@@ -71,4 +71,10 @@
     <string name="alreadyAMember">Already A Member?</string>
     <string name="logout">LogOut</string>
     <string name="client_id">194219074503-2scg5hj7dvafavig9ldm7sjshnnnejf5.apps.googleusercontent.com</string>
+    <string name="mealTitle">Check Our Suggested Meal</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">Exit</string>
+    <string name="signOutExit">SignOut and Exit</string>
+    <string name="exitMsg">Are you sure you want Exit?</string>
 </resources>

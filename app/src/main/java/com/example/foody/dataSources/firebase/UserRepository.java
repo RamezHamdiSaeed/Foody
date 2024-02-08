@@ -1,20 +1,26 @@
 package com.example.foody.dataSources.firebase;
 
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.foody.screens.auth.view.SignInActivity;
+import com.example.foody.screens.main.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class UserRepository {
+    private FirebaseUser user;
     private FirebaseAuth mAuth;
     private static UserRepository instance = null;
 
     private UserRepository() {
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public static UserRepository getInstance() {
@@ -58,5 +64,18 @@ public class UserRepository {
                         }
                     }
                 });
+    }
+    public void signOut(){
+        FirebaseAuth.getInstance().signOut();
+
+    }
+    public String getCurrentUserEmailIfExists(){
+        user= mAuth.getCurrentUser();
+        if(user==null){
+             return null;
+        }
+        else{
+            return user.getEmail();
+        }
     }
 }
