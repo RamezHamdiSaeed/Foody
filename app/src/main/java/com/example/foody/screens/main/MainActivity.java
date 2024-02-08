@@ -1,4 +1,4 @@
-package com.example.foody.screens;
+package com.example.foody.screens.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.foody.R;
+import com.example.foody.screens.auth.view.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         userMail=findViewById(R.id.userMail);
         user= auth.getCurrentUser();
         if(user==null){
-            Intent intent = new Intent(MainActivity.this, SignIn.class);
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
         }
         else{
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivity.this, SignIn.class);
+                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                 startActivity(intent);
 
             }

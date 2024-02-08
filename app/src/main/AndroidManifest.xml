@@ -13,16 +13,16 @@
         android:theme="@style/Theme.Foody"
         tools:targetApi="31">
         <activity
-            android:name=".screens.MainActivity"
+            android:name=".screens.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.SignUp"
+            android:name=".screens.auth.view.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.SignIn"
+            android:name=".screens.auth.view.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.SplashActivity"
+            android:name=".screens.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".screens.ViewPagerActivity"
+            android:name=".screens.onBoarding.ViewPagerActivity"
             android:exported="false" />
     </application>
 

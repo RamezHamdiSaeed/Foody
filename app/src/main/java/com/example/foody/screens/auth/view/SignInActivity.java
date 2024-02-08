@@ -1,4 +1,4 @@
-package com.example.foody.screens;
+package com.example.foody.screens.auth.view;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -19,6 +19,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foody.R;
+import com.example.foody.dataSources.firebase.UserAuthModel;
+import com.example.foody.screens.auth.IContract;
+import com.example.foody.screens.auth.model.AuthModel;
+import com.example.foody.screens.auth.presenter.AuthPresenter;
+import com.example.foody.screens.main.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,12 +38,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import java.util.Objects;
-
-public class SignIn extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity  implements IContract.View {
+    private IContract.Presenter presenter;
     private EditText email,password;
     private ImageView googleSignIn;
-    private Button signIn;
+    private Button signBtn;
     private TextView switchAuth,guestNavigator;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
@@ -56,13 +60,13 @@ public class SignIn extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 mAuth = FirebaseAuth.getInstance();
-                                Toast.makeText(SignIn.this, "Signed in successfully!", Toast.LENGTH_SHORT).show();
-                                Intent intentTwoMainActivity = new Intent(SignIn.this, MainActivity.class);
+                                Toast.makeText(SignInActivity.this, "Signed in successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intentTwoMainActivity = new Intent(SignInActivity.this, MainActivity.class);
                                 startActivity(intentTwoMainActivity);
                                 finish();
 
                             } else {
-                                Toast.makeText(SignIn.this, "Failed to sign in: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignInActivity.this, "Failed to sign in: " + task.getException(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -78,61 +82,67 @@ public class SignIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        presenter=new AuthPresenter(this,new AuthModel());
+
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         googleSignIn=findViewById(R.id.googleSignIn);
-        signIn=findViewById(R.id.signInbtn);
+        signBtn =findViewById(R.id.signInbtn);
         switchAuth=findViewById(R.id.switchAuth);
         guestNavigator=findViewById(R.id.guestNavigator);
         progressBar=findViewById(R.id.progressBar2);
         mAuth = FirebaseAuth.getInstance();
 
-        signIn.setOnClickListener(new View.OnClickListener() {
+        signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressBar.setVisibility(View.VISIBLE);
+                presenter.onSingIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), password.getText().toString()));
 
-                String emailString,passwordString;
-                emailString=email.getText().toString();
-                passwordString=password.getText().toString();
-                if(TextUtils.isEmpty(emailString)){
-                    progressBar.setVisibility(View.GONE);
-
-                    Toast.makeText(SignIn.this, "Enter Email", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if(TextUtils.isEmpty(passwordString)){
-                    Toast.makeText(SignIn.this, "Enter Password", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                mAuth.signInWithEmailAndPassword(emailString, passwordString)
-                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Toast.makeText(SignIn.this, "Signed in successfully.",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(SignIn.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-
-                                } else {
-                                    // If sign in fails, display a message to the user.
-
-                                    Toast.makeText(SignIn.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+//                progressBar.setVisibility(View.VISIBLE);
+//
+//                String emailString,passwordString;
+//                emailString=email.getText().toString();
+//                passwordString=password.getText().toString();
+//                if(TextUtils.isEmpty(emailString)){
+//                    progressBar.setVisibility(View.GONE);
+//
+//                    Toast.makeText(SignInActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if(TextUtils.isEmpty(passwordString)){
+//                    Toast.makeText(SignInActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                mAuth.signInWithEmailAndPassword(emailString, passwordString)
+//                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<AuthResult> task) {
+//                                if (task.isSuccessful()) {
+//                                    // Sign in success, update UI with the signed-in user's information
+//                                    Toast.makeText(SignInActivity.this, "Signed in successfully.",
+//                                            Toast.LENGTH_SHORT).show();
+//                                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+//
+//                                } else {
+//                                    // If sign in fails, display a message to the user.
+//
+//                                    Toast.makeText(SignInActivity.this, "Authentication failed.",
+//                                            Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        });////
             }
         });
 
         switchAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignIn.this, SignUp.class);
-                startActivity(intent);
+//                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
+//                startActivity(intent);
+                presenter.onSwitchAuthButtonClick();
+
             }
         });
 
@@ -142,7 +152,7 @@ public class SignIn extends AppCompatActivity {
                 .requestIdToken(getString(R.string.client_id))
                 .requestEmail()
                 .build();
-        googleSignInClient = GoogleSignIn.getClient(SignIn.this, options);
+        googleSignInClient = GoogleSignIn.getClient(SignInActivity.this, options);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -163,9 +173,47 @@ public class SignIn extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(SignIn.this, MainActivity.class);
+            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
+    }
+
+    @Override
+    public void showProgress() {
+        progressBar.setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    public void hideProgress() {
+        progressBar.setVisibility(View.GONE);
+
+
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(SignInActivity.this, message,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void switchAuth() {
+        Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void navigate() {
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
     }
 }

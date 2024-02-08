@@ -1,9 +1,10 @@
-package com.example.foody.screens;
+package com.example.foody.screens.onBoarding;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.foody.R;
+import com.example.foody.screens.auth.view.SignInActivity;
 import com.example.foody.ui.viewPager.VPAdapter;
 import com.example.foody.ui.viewPager.ViewPagerItem;
 
@@ -12,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 
 import androidx.viewpager2.widget.ViewPager2;
@@ -63,7 +63,7 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
         nextbtn.setOnClickListener(v -> {
-            Intent intent = new Intent(ViewPagerActivity.this, SignIn.class);
+            Intent intent = new Intent(ViewPagerActivity.this, SignInActivity.class);
             startActivity(intent);
         });
 
