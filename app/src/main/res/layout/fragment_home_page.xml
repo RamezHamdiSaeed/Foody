@@ -1,16 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.main.pages.home.HomePage">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/homeSearch"
+        android:layout_width="248dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="@string/enterMealTitle"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:textColor="#292828"
+        android:textColorHint="#F7858080"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_filters"
+
+        android:layout_width="66dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="#129575"
+        android:drawableLeft="@drawable/setting_4"
+        android:text=""
+        android:textColor="#FDFBFB"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/homeSearch"
+        app:layout_constraintTop_toTopOf="@+id/homeSearch" />
+
+    <GridView
+        android:id="@+id/homeGridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Home Page"
-        android:textSize="20sp" />
+        android:layout_marginTop="130dp"
+        android:horizontalSpacing="6dp"
+        android:numColumns="2"
+        android:verticalSpacing="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeSearch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
