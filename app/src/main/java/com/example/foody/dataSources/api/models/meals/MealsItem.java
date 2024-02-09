@@ -1,4 +1,4 @@
-package com.example.foody.dataSources.api;
+package com.example.foody.dataSources.api.models.meals;
 
 import com.google.gson.annotations.SerializedName;
 

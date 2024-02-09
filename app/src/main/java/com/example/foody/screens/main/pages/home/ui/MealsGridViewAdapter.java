@@ -17,8 +17,8 @@ import com.example.foody.R;
 import java.util.ArrayList;
 
 public class MealsGridViewAdapter extends ArrayAdapter<MealModel> {
-    public MealsGridViewAdapter(@NonNull Context context, ArrayList<MealModel> courseModelArrayList) {
-        super(context, 0, courseModelArrayList);
+    public MealsGridViewAdapter(@NonNull Context context, ArrayList<MealModel> mealModelArrayList) {
+        super(context, 0, mealModelArrayList);
     }
 
     @NonNull

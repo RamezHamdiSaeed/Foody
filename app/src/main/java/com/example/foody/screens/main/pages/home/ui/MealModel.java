@@ -3,10 +3,12 @@ package com.example.foody.screens.main.pages.home.ui;
 public class MealModel {
     private String strMealThumb;
     private String strMeal;
+    private String idMeal;
 
-    public MealModel(String strMealThumb, String strMeal) {
+    public MealModel(String strMealThumb, String strMeal,String idMeal) {
         this.strMealThumb = strMealThumb;
         this.strMeal = strMeal;
+        this.idMeal=idMeal;
     }
 
     public String getStrMealThumb() {
@@ -23,5 +25,13 @@ public class MealModel {
 
     public void setStrMeal(String strMeal) {
         this.strMeal = strMeal;
+    }
+
+    public String getIdMeal() {
+        return idMeal;
+    }
+
+    public void setIdMeal(String idMeal) {
+        this.idMeal = idMeal;
     }
 }

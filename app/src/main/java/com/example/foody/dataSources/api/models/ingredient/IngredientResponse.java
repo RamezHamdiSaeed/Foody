@@ -1,9 +1,10 @@
-package com.example.foody.dataSources.api;
+package com.example.foody.dataSources.api.models.ingredient;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class Response{
+import java.util.List;
+
+public class IngredientResponse {
 
 	@SerializedName("meals")
 	private List<MealsItem> meals;

@@ -1,6 +1,5 @@
 package com.example.foody.screens.main.pages.home.view;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,20 +9,21 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 
 import com.example.foody.R;
-import com.example.foody.dataSources.api.FoodRemoteDataSource;
-import com.example.foody.dataSources.api.MealsItem;
-import com.example.foody.dataSources.api.NetworkListener;
-import com.example.foody.dataSources.api.ObserverCallBack;
+import com.example.foody.dataSources.api.models.category.MealsItem;
+import com.example.foody.dataSources.api.models.category.NetworkListener;
 import com.example.foody.screens.main.pages.home.IContract;
 import com.example.foody.screens.main.pages.home.model.HomeModel;
 import com.example.foody.screens.main.pages.home.presenter.HomePresenter;
+import com.example.foody.screens.main.pages.home.ui.BottomSheet;
 import com.example.foody.screens.main.pages.home.ui.MealModel;
 import com.example.foody.screens.main.pages.home.ui.MealsGridViewAdapter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +33,13 @@ public class HomePage extends Fragment implements IContract.IView {
 
     GridView mealsGV;
     EditText searchField;
+    Button filters;
+
+
+//    List<String> categoriesItems=new ArrayList<>();
+//    List<String> countriesItems=new ArrayList<>();
+//    List<String> ingredientsItems=new ArrayList<>();
+
 
 
     public HomePage() {
@@ -53,9 +60,61 @@ public class HomePage extends Fragment implements IContract.IView {
                              Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView: ");
         View view= inflater.inflate(R.layout.fragment_home_page, container, false);
-
+        filters=view.findViewById(R.id.btn_filters);
         mealsGV = view.findViewById(R.id.homeGridView);
         searchField=view.findViewById(R.id.homeSearch);
+        presenter.getFilters();
+//        HomeModel homeModel=new HomeModel();
+//        homeModel.getCategories(new NetworkListener() {
+//            @Override
+//            public void onDataFetched(List<MealsItem> categories) {
+//                for(com.example.foody.dataSources.api.models.category.MealsItem category : categories){
+//                    categoriesItems.add(category.getStrCategory());
+//                }
+//            }
+//
+//            @Override
+//            public void onDataFailed() {
+//                Log.i(TAG, "onDataFailed: ");
+//            }
+//        });
+//        homeModel.getCountries(new com.example.foody.dataSources.api.models.country.NetworkListener() {
+//            @Override
+//            public void onDataFetched(List<com.example.foody.dataSources.api.models.country.MealsItem> countries) {
+//                for(com.example.foody.dataSources.api.models.country.MealsItem country : countries){
+//                    countriesItems.add(country.getStrArea());
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onDataFailed() {
+//                Log.i(TAG, "onDataFailed: ");
+//            }
+//        });
+//        homeModel.getIngredients(new com.example.foody.dataSources.api.models.ingredient.NetworkListener() {
+//            @Override
+//            public void onDataFetched(List<com.example.foody.dataSources.api.models.ingredient.MealsItem> ingredients) {
+//                for(com.example.foody.dataSources.api.models.ingredient.MealsItem ingredient : ingredients){
+//                    ingredientsItems.add(ingredient.getStrIngredient());
+//                }
+//            }
+//
+//            @Override
+//            public void onDataFailed() {
+//                Log.i(TAG, "onDataFailed: ");
+//            }
+//        });
+        filters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                presenter.setBottomSheet();
+//                BottomSheet bottomSheetFragment = new BottomSheet(categoriesItems,countriesItems,ingredientsItems);
+//                bottomSheetFragment.show(getChildFragmentManager(), bottomSheetFragment.getTag());
+
+            }
+        });
         searchField.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -86,5 +145,11 @@ public class HomePage extends Fragment implements IContract.IView {
     public void showMealsInGridView(MealsGridViewAdapter adapter, ArrayList<MealModel> gridViewMeals) {
         adapter = new MealsGridViewAdapter(this.getContext(), gridViewMeals);
         mealsGV.setAdapter(adapter);
+    }
+
+    @Override
+    public void showFiltersInBottomSheet(BottomSheet bottomSheetFragment) {
+        bottomSheetFragment.show(getChildFragmentManager(), bottomSheetFragment.getTag());
+
     }
 }

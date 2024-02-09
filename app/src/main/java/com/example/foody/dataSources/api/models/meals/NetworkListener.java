@@ -1,4 +1,6 @@
-package com.example.foody.dataSources.api;
+package com.example.foody.dataSources.api.models.meals;
+
+import com.example.foody.dataSources.api.models.meals.MealsItem;
 
 import java.util.List;
 

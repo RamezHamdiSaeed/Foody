@@ -16,9 +16,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.foody.R;
-import com.example.foody.dataSources.api.FoodRemoteDataSource;
-import com.example.foody.dataSources.api.MealsItem;
-import com.example.foody.dataSources.api.NetworkListener;
+import com.example.foody.dataSources.api.FoodRemoteRepository;
+import com.example.foody.dataSources.api.models.meals.MealsItem;
+import com.example.foody.dataSources.api.models.meals.NetworkListener;
 import com.example.foody.dataSources.firebase.UserRepository;
 import com.example.foody.screens.info.InfoActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NetworkListener {
     @Override
     protected void onStart() {
         super.onStart();
-        FoodRemoteDataSource.getClient().getRandomMeal(this);
+        FoodRemoteRepository.getClient().getRandomMeal(this);
 
     }
 

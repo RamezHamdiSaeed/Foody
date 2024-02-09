@@ -3,9 +3,10 @@ package com.example.foody.screens.main.pages.home.presenter;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.foody.dataSources.api.MealsItem;
+import com.example.foody.dataSources.api.models.meals.MealsItem;
 import com.example.foody.screens.main.pages.home.IContract;
-import com.example.foody.dataSources.api.NetworkListener;
+import com.example.foody.dataSources.api.models.meals.NetworkListener;
+import com.example.foody.screens.main.pages.home.ui.BottomSheet;
 import com.example.foody.screens.main.pages.home.ui.MealModel;
 import com.example.foody.screens.main.pages.home.ui.MealsGridViewAdapter;
 
@@ -18,6 +19,9 @@ public class HomePresenter implements IContract.IPresenter, NetworkListener{
     IContract.IModel model;
      ArrayList<MealModel> gridViewMeals;
      private static final String TAG="HomePresenter";
+    List<String> categoriesItems=new ArrayList<>();
+    List<String> countriesItems=new ArrayList<>();
+    List<String> ingredientsItems=new ArrayList<>();
 
     MealsGridViewAdapter adapter ;
      public HomePresenter(IContract.IView view,IContract.IModel model){
@@ -28,19 +32,22 @@ public class HomePresenter implements IContract.IPresenter, NetworkListener{
 
     @Override
     public void onDataFetched(List<MealsItem> meals) {
-         gridViewMeals.clear();
+       setGridViewMeals(meals);
+
+    }
+    public void setGridViewMeals(List<MealsItem> meals){
+        gridViewMeals.clear();
         Log.i(TAG, "onDataFetched: "+meals.size());
-                for(MealsItem meal : meals){
-                    gridViewMeals.add(new MealModel(meal.getStrMealThumb(),meal.getStrMeal()));
+        for(MealsItem meal : meals){
+            gridViewMeals.add(new MealModel(meal.getStrMealThumb(),meal.getStrMeal(),meal.getIdMeal()));
 
-                }
-                if(view!=null) {
-                    view.showMealsInGridView(adapter, gridViewMeals);
-                }
-                else{
-                    Log.i(TAG, "onDataFetched: view is Null");
-                }
-
+        }
+        if(view!=null) {
+            view.showMealsInGridView(adapter, gridViewMeals);
+        }
+        else{
+            Log.i(TAG, "onDataFetched: view is Null");
+        }
     }
 
     @Override
@@ -63,4 +70,90 @@ public class HomePresenter implements IContract.IPresenter, NetworkListener{
         Log.i(TAG, "setMealsGridView: String "+keyword);
          model.getMealsByString(keyword,this);
    }
+
+    @Override
+    public void getFilters() {
+        model.getCategories(new com.example.foody.dataSources.api.models.category.NetworkListener() {
+            @Override
+            public void onDataFetched(List<com.example.foody.dataSources.api.models.category.MealsItem> categories) {
+                for(com.example.foody.dataSources.api.models.category.MealsItem category : categories){
+                    categoriesItems.add(category.getStrCategory());
+                }
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+            }
+        });
+        model.getCountries(new com.example.foody.dataSources.api.models.country.NetworkListener() {
+            @Override
+            public void onDataFetched(List<com.example.foody.dataSources.api.models.country.MealsItem> countries) {
+                for(com.example.foody.dataSources.api.models.country.MealsItem country : countries){
+                    countriesItems.add(country.getStrArea());
+                }
+
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+            }
+        });
+        model.getIngredients(new com.example.foody.dataSources.api.models.ingredient.NetworkListener() {
+            @Override
+            public void onDataFetched(List<com.example.foody.dataSources.api.models.ingredient.MealsItem> ingredients) {
+                for(com.example.foody.dataSources.api.models.ingredient.MealsItem ingredient : ingredients){
+                    ingredientsItems.add(ingredient.getStrIngredient());
+                }
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+            }
+        });
+    }
+
+    @Override
+    public void setBottomSheet() {
+        BottomSheet bottomSheetFragment = new BottomSheet(categoriesItems, countriesItems, ingredientsItems, new NetworkListener() {
+            @Override
+            public void onDataFetched(List<MealsItem> meals) {
+                setGridViewMeals(meals);
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+            }
+        }, new NetworkListener() {
+            @Override
+            public void onDataFetched(List<MealsItem> meals) {
+                setGridViewMeals(meals);
+
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+
+            }
+        }, new NetworkListener() {
+            @Override
+            public void onDataFetched(List<MealsItem> meals) {
+                setGridViewMeals(meals);
+
+            }
+
+            @Override
+            public void onDataFailed() {
+                Log.i(TAG, "onDataFailed: ");
+
+            }
+        });
+        view.showFiltersInBottomSheet(bottomSheetFragment);
+
+    }
+
 }
