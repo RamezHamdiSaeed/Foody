@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.main.pages.home.HomePage">
+    tools:context=".screens.main.pages.home.view.HomePage">
 
     <EditText
         android:id="@+id/homeSearch"
@@ -30,7 +30,7 @@
         android:layout_width="66dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
-        android:backgroundTint="#129575"
+        android:backgroundTint="@color/colorBlacky"
         android:drawableLeft="@drawable/setting_4"
         android:text=""
         android:textColor="#FDFBFB"

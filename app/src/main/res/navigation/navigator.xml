@@ -6,7 +6,7 @@
     app:startDestination="@id/HomePage">
     <fragment
         android:id="@+id/HomePage"
-        android:name="com.example.foody.screens.main.pages.home.HomePage"
+        android:name="com.example.foody.screens.main.pages.home.view.HomePage"
         android:label="fragment_home_page1"
         tools:layout="@layout/fragment_home_page" />
     <fragment

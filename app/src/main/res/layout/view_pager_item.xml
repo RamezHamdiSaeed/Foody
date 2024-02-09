@@ -42,7 +42,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:text="Baked"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="26dp"
                     android:textStyle="bold"/>
 

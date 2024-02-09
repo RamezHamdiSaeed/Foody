@@ -45,6 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:gravity="center"
                 android:text="@string/mealTitle"
                 android:textColor="@color/colorBlacky"
                 android:textSize="20sp" />
@@ -64,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/black"
-                    android:text="@string/cancel"
+                    android:text="@string/ok"
                     android:textColor="@color/white" />
 
             </LinearLayout>
