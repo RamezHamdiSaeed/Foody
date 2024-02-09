@@ -10,6 +10,7 @@ import java.util.List;
 
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Retrofit;
@@ -51,16 +52,25 @@ public class FoodRemoteRepository {
 
     }
     public void getMealsByLetters(String letters, NetworkListener listener) {
-        Single<Response> mealsObservable = apiInterface.getMeals(letters);
+        Observable<Response> mealsObservable = apiInterface.getMeals(letters);
 
-        mealsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(item -> {
-            List<MealsItem> meals = item.getMeals();
-            Log.i("foodServiceDataSource", "getMealsByLetters: "+meals.size());
-            listener.onDataFetched(meals);
-        }, throwable -> {
-            Log.i("Retrofit", "fetchDataFromApi: ");
-        });
-
+        mealsObservable
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap(response -> {
+                    List<MealsItem> meals = response.getMeals();
+                    return Observable.fromIterable(meals);
+                })
+                .toList()
+                .subscribe(
+                        meals -> {
+                            Log.i("foodServiceDataSource", "getMealsByLetters: " + meals.size());
+                            listener.onDataFetched(meals);
+                        },
+                        throwable -> {
+                            Log.e("Retrofit", "fetchDataFromApi: ", throwable);
+                        }
+                );
     }
     public void getMealsByIngredient(String ingredientText,NetworkListener listener) {
         Single<Response> mealsObservable = apiInterface.getMealsByIngredient(ingredientText);
