@@ -1,5 +1,6 @@
 package com.example.foody.screens.main.pages.home.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,9 +17,11 @@ import android.widget.GridView;
 import com.example.foody.R;
 import com.example.foody.dataSources.api.models.category.MealsItem;
 import com.example.foody.dataSources.api.models.category.NetworkListener;
+import com.example.foody.screens.info.InfoActivity;
 import com.example.foody.screens.main.pages.home.IContract;
 import com.example.foody.screens.main.pages.home.model.HomeModel;
 import com.example.foody.screens.main.pages.home.presenter.HomePresenter;
+import com.example.foody.screens.main.pages.home.presenter.IHomePageNavigateCallBack;
 import com.example.foody.screens.main.pages.home.ui.BottomSheet;
 import com.example.foody.screens.main.pages.home.ui.MealModel;
 import com.example.foody.screens.main.pages.home.ui.MealsGridViewAdapter;
@@ -142,8 +145,8 @@ public class HomePage extends Fragment implements IContract.IView {
 
 
     @Override
-    public void showMealsInGridView(MealsGridViewAdapter adapter, ArrayList<MealModel> gridViewMeals) {
-        adapter = new MealsGridViewAdapter(this.getContext(), gridViewMeals);
+    public void showMealsInGridView(MealsGridViewAdapter adapter, ArrayList<MealModel> gridViewMeals, IHomePageNavigateCallBack callBack) {
+        adapter = new MealsGridViewAdapter(this.getContext(), gridViewMeals,callBack);
         mealsGV.setAdapter(adapter);
     }
 
@@ -151,5 +154,13 @@ public class HomePage extends Fragment implements IContract.IView {
     public void showFiltersInBottomSheet(BottomSheet bottomSheetFragment) {
         bottomSheetFragment.show(getChildFragmentManager(), bottomSheetFragment.getTag());
 
+    }
+
+    @Override
+    public void navigateToInfoScreen(String mealID) {
+        Intent intent = new Intent(this.getContext(), InfoActivity.class);
+        intent.putExtra("mealID", mealID);
+
+        startActivity(intent);
     }
 }

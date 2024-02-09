@@ -3,6 +3,7 @@ package com.example.foody.screens.main.pages.home;
 import android.content.Context;
 
 import com.example.foody.dataSources.api.models.meals.NetworkListener;
+import com.example.foody.screens.main.pages.home.presenter.IHomePageNavigateCallBack;
 import com.example.foody.screens.main.pages.home.ui.BottomSheet;
 import com.example.foody.screens.main.pages.home.ui.MealModel;
 import com.example.foody.screens.main.pages.home.ui.MealsGridViewAdapter;
@@ -26,8 +27,9 @@ public interface IContract {
 
     }
     public interface IView{
-        public void showMealsInGridView(MealsGridViewAdapter adapter, ArrayList<MealModel> gridViewMeals);
+        public void showMealsInGridView(MealsGridViewAdapter adapter, ArrayList<MealModel> gridViewMeals, IHomePageNavigateCallBack callBack);
         public void showFiltersInBottomSheet(BottomSheet bottomSheetFragment);
+        public void navigateToInfoScreen(String mealID);
     }
     public interface IPresenter{
        // public void addMeal(MealsItem meal);

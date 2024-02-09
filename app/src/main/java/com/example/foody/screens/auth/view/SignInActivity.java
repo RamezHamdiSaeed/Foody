@@ -97,50 +97,13 @@ public class SignInActivity extends AppCompatActivity  implements IContract.View
             @Override
             public void onClick(View v) {
                 presenter.onSignIn_UpClick(new UserAuthModel(email.getText().toString(), password.getText().toString(), password.getText().toString()));
-
-//                progressBar.setVisibility(View.VISIBLE);
-//
-//                String emailString,passwordString;
-//                emailString=email.getText().toString();
-//                passwordString=password.getText().toString();
-//                if(TextUtils.isEmpty(emailString)){
-//                    progressBar.setVisibility(View.GONE);
-//
-//                    Toast.makeText(SignInActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                if(TextUtils.isEmpty(passwordString)){
-//                    Toast.makeText(SignInActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//                mAuth.signInWithEmailAndPassword(emailString, passwordString)
-//                        .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                if (task.isSuccessful()) {
-//                                    // Sign in success, update UI with the signed-in user's information
-//                                    Toast.makeText(SignInActivity.this, "Signed in successfully.",
-//                                            Toast.LENGTH_SHORT).show();
-//                                    Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-//                                    startActivity(intent);
-//                                    finish();
-//
-//                                } else {
-//                                    // If sign in fails, display a message to the user.
-//
-//                                    Toast.makeText(SignInActivity.this, "Authentication failed.",
-//                                            Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//                        });////
             }
         });
 
         switchAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
-//                startActivity(intent);
+
                 presenter.onSwitchAuthButtonClick();
 
             }

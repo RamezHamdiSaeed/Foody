@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomePresenter implements IContract.IPresenter, NetworkListener{
+public class HomePresenter implements IContract.IPresenter, NetworkListener,IHomePageNavigateCallBack{
     IContract.IView view;
     IContract.IModel model;
      ArrayList<MealModel> gridViewMeals;
@@ -43,7 +43,12 @@ public class HomePresenter implements IContract.IPresenter, NetworkListener{
 
         }
         if(view!=null) {
-            view.showMealsInGridView(adapter, gridViewMeals);
+            view.showMealsInGridView(adapter, gridViewMeals, new IHomePageNavigateCallBack() {
+                @Override
+                public void startNavigation(String mealID) {
+                    view.navigateToInfoScreen(mealID);
+                }
+            });
         }
         else{
             Log.i(TAG, "onDataFetched: view is Null");
@@ -156,4 +161,8 @@ public class HomePresenter implements IContract.IPresenter, NetworkListener{
 
     }
 
+    @Override
+    public void startNavigation(String mealID) {
+        view.navigateToInfoScreen(mealID);
+    }
 }

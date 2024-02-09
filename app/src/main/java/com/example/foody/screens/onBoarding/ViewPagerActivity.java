@@ -1,6 +1,8 @@
 package com.example.foody.screens.onBoarding;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.foody.R;
@@ -30,6 +32,16 @@ public class ViewPagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("YourSharedPreferencesName", Context.MODE_PRIVATE);
+        if(sharedPreferences.getBoolean("FirstTime", true)){
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("FirstTime", false);
+            editor.apply();
+        }
+        else{
+            Intent intent = new Intent(ViewPagerActivity.this, SignInActivity.class);
+            startActivity(intent);
+        }
         setContentView(R.layout.activity_view_pager);
         viewPager2 = findViewById(R.id.viewPager);
         nextbtn=findViewById(R.id.nextbtn);
