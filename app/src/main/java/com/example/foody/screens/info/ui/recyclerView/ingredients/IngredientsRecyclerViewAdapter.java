@@ -1,14 +1,11 @@
-package com.example.foody.screens.info.ui.recyclerView;
+package com.example.foody.screens.info.ui.recyclerView.ingredients;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -20,11 +17,11 @@ import com.example.foody.R;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private List<MyItem> itemList;
+public class IngredientsRecyclerViewAdapter extends androidx.recyclerview.widget.RecyclerView.Adapter<IngredientsRecyclerViewAdapter.ViewHolder> {
+    private List<Ingredient> itemList;
     private Context context;
 
-    public RecyclerViewAdapter(Context context, List<MyItem> itemList) {
+    public IngredientsRecyclerViewAdapter(Context context, List<Ingredient> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
@@ -38,7 +35,7 @@ public class RecyclerViewAdapter extends androidx.recyclerview.widget.RecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MyItem item = itemList.get(position);
+        Ingredient item = itemList.get(position);
 
         // Bind data to views
         Glide.with(context).load("https://www.themealdb.com/images/ingredients/"+item.getTitle()+"-Small.png").into(holder.imageView);

@@ -1,12 +1,12 @@
-package com.example.foody.screens.info.ui.recyclerView;
+package com.example.foody.screens.info.ui.recyclerView.ingredients;
 
-public class MyItem {
+public class Ingredient {
 
 
 
         private String title;
 
-        public MyItem(String title) {
+        public Ingredient(String title) {
 
             this.title = title;
         }

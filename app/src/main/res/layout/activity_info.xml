@@ -32,7 +32,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/country"
+        android:id="@+id/infoCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <Button
-        android:id="@+id/infoProcedure"
+        android:id="@+id/btnInfoProcedure"
         android:layout_width="136dp"
         android:layout_height="56dp"
         android:layout_marginTop="136dp"
@@ -60,11 +60,11 @@
         android:text="@string/procedure"
         android:textColor="#FDFBFB"
         app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/country"
+        app:layout_constraintEnd_toEndOf="@+id/infoCountry"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
     <Button
-        android:id="@+id/infoIngredients"
+        android:id="@+id/btnInfoIngredients"
         android:layout_width="136dp"
         android:layout_height="55dp"
         android:layout_marginTop="136dp"
@@ -80,6 +80,15 @@
         android:layout_width="356dp"
         android:layout_height="278dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ProcedureSteps"
+        android:layout_width="356dp"
+        android:layout_height="278dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

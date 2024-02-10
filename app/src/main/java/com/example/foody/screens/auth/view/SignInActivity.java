@@ -86,7 +86,7 @@ public class SignInActivity extends AppCompatActivity  implements IContract.View
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         googleSignIn=findViewById(R.id.googleSignIn);
-        signBtn =findViewById(R.id.infoProcedure);
+        signBtn =findViewById(R.id.btnInfoProcedure);
         switchAuth=findViewById(R.id.switchAuth);
         guestNavigator=findViewById(R.id.guestNavigator);
         progressBar=findViewById(R.id.progressBar2);

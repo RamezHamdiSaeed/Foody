@@ -16,7 +16,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        startCooking=findViewById(R.id.infoProcedure);
+        startCooking=findViewById(R.id.btnInfoProcedure);
         startCooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
