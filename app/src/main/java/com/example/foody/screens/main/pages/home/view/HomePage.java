@@ -160,6 +160,8 @@ public class HomePage extends Fragment implements IContract.IView {
     public void navigateToInfoScreen(String mealID) {
         Intent intent = new Intent(this.getContext(), InfoActivity.class);
         intent.putExtra("mealID", mealID);
+        intent.putExtra("Source", "DB");
+
 
         startActivity(intent);
     }

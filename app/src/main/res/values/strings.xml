@@ -83,4 +83,7 @@
     <string name="category">Category</string>
     <string name="country">Country</string>
     <string name="ingredient">Ingredient</string>
+    <string name="unKnown">UnKnown</string>
+    <string name="procedure">Procedure</string>
+    <string name="ingredients">Ingredients</string>
 </resources>

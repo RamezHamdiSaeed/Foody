@@ -95,7 +95,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/signInbtn"
+        android:id="@+id/infoProcedure"
         android:layout_width="322dp"
         android:layout_height="64dp"
         android:layout_marginTop="48dp"
@@ -118,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
     <View
         android:id="@+id/divider3"
@@ -128,7 +128,7 @@
         android:layout_marginEnd="128dp"
         android:background="@color/cardview_dark_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
     <View
         android:id="@+id/divider2"
@@ -138,7 +138,7 @@
         android:layout_marginTop="60dp"
         android:background="@color/cardview_dark_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
     <ImageView
         android:id="@+id/googleSignIn"
@@ -150,7 +150,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
     <TextView
         android:id="@+id/dontHaveAnAccount"
@@ -161,7 +161,7 @@
         android:text="@string/dontHaveAnAccount"
         android:textColor="@color/cardview_dark_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
     <TextView
         android:id="@+id/switchAuth"
@@ -193,6 +193,6 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/infoProcedure" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,15 +41,22 @@ public class FoodRemoteRepository {
     }
 
     public void getRandomMeal(NetworkListener listener) {
-        Single<Response> mealssObservable = apiInterface.getRandomMeal();
-        mealssObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(item -> {
+        Single<Response> mealsObservable = apiInterface.getRandomMeal();
+        mealsObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(item -> {
             List<MealsItem> meals = item.getMeals();
             listener.onDataFetched(meals);
         }, throwable -> {
             Log.i("Retrofit", "fetchDataFromApi: ");
         });
-
-
+    }
+    public void getMeal(String id,NetworkListener listener) {
+        Single<Response> mealObservable = apiInterface.getMeal(id);
+        mealObservable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(item -> {
+            List<MealsItem> meals = item.getMeals();
+            listener.onDataFetched(meals);
+        }, throwable -> {
+            Log.i("Retrofit", "fetchDataFromApi: ");
+        });
     }
     public void getMealsByLetters(String letters, NetworkListener listener) {
         Observable<Response> mealsObservable = apiInterface.getMeals(letters);

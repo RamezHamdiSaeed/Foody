@@ -22,7 +22,6 @@ import com.example.foody.dataSources.firebase.UserAuthModel;
 import com.example.foody.screens.auth.IContract;
 import com.example.foody.screens.auth.model.AuthModel;
 import com.example.foody.screens.auth.presenter.SignInPresenter;
-import com.example.foody.screens.auth.presenter.SignUpPresenter;
 import com.example.foody.screens.main.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -87,7 +86,7 @@ public class SignInActivity extends AppCompatActivity  implements IContract.View
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
         googleSignIn=findViewById(R.id.googleSignIn);
-        signBtn =findViewById(R.id.signInbtn);
+        signBtn =findViewById(R.id.infoProcedure);
         switchAuth=findViewById(R.id.switchAuth);
         guestNavigator=findViewById(R.id.guestNavigator);
         progressBar=findViewById(R.id.progressBar2);

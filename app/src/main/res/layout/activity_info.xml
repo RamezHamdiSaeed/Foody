@@ -5,5 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".screens.info.InfoActivity">
+    <!-- activity_main.xml -->
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:onClick="onImageClick"
+            android:scaleType="centerCrop" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/unKnown"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <TextView
+        android:id="@+id/infoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/unKnown"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <Button
+        android:id="@+id/infoProcedure"
+        android:layout_width="136dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="136dp"
+        android:backgroundTint="#129575"
+        android:text="@string/procedure"
+        android:textColor="#FDFBFB"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/country"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <Button
+        android:id="@+id/infoIngredients"
+        android:layout_width="136dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="136dp"
+        android:backgroundTint="#129575"
+        android:text="@string/ingredients"
+        android:textColor="#FDFBFB"
+        app:cornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="@+id/infoTitle"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ingredients"
+        android:layout_width="356dp"
+        android:layout_height="278dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

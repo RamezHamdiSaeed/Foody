@@ -15,6 +15,8 @@ public interface IApiService {
     public Single<Response> getRandomMeal();
     @GET("search.php")
     public Observable<Response> getMeals(@Query("f") String letters);
+    @GET("lookup.php")
+    public Single<Response> getMeal(@Query("i") String id);
 
     @GET("list.php?a=list")
     public Single<CountryResponse> getCountries();
