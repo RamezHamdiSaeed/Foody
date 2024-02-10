@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,7 +36,7 @@ public class InfoActivity extends AppCompatActivity implements NetworkListener{
     TextView country,title;
     List<Ingredient> ingredientsList;
     List<Step> procedureStepsList;
-    private VideoView videoView;
+    private WebView webView;
     private ImageView thumbnailImageView;
 
 
@@ -50,7 +52,7 @@ public class InfoActivity extends AppCompatActivity implements NetworkListener{
         country=findViewById(R.id.infoCountry);
         btnIngredients=findViewById(R.id.btnInfoIngredients);
         btnProcedure=findViewById(R.id.btnInfoProcedure);
-        videoView = findViewById(R.id.videoView);
+        webView = findViewById(R.id.webView);
         thumbnailImageView = findViewById(R.id.imageView);
 
         btnProcedure.setOnClickListener(new View.OnClickListener() {
@@ -163,12 +165,14 @@ public class InfoActivity extends AppCompatActivity implements NetworkListener{
     public void onDataFetched(List<MealsItem> meals) {
         Log.i(TAG, "onDataFetched: "+meals.size());
         Uri videoUri = Uri.parse(meals.get(0).getStrYoutube());
-        videoView.setVideoURI(videoUri);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
         Glide.with(this).load(meals.get(0).getStrMealThumb()).into(thumbnailImageView);
 
         thumbnailImageView.setOnClickListener(v -> {
             thumbnailImageView.setVisibility(android.view.View.GONE);
-            videoView.start();
+            webView.loadUrl(meals.get(0).getStrYoutube());
         });
         title.setText(meals.get(0).getStrMeal());
         country.setText(meals.get(0).getStrArea());
